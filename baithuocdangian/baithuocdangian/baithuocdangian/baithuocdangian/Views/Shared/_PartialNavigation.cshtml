@@ -1,0 +1,134 @@
+﻿
+
+<div id="menu">
+    <ul>
+@if (Session["role"].ToString() == "1" )
+{
+
+        <li>
+            <a class="TopMenuItem" href="javascript:;">
+                <span class="MenuText"><i class="fa fa-cogs"></i>Quản lý </span>
+            </a>
+            <ul>
+                <li class="SubFirst">
+                    <a href="/Config/Index">
+                        <span class="SubMenuText">
+                            Cấu hình
+                            
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Banner/Index">
+                        <span class="SubMenuText">
+                            Quảng cáo
+                        </span>
+                    </a>
+
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="TopMenuItem" href="javascript:;">
+                <span class="MenuText"><i class="fa fa-tags"></i>Quản lý bài viết</span>
+            </a>
+            <ul>
+                <li class="SubFirst">
+                    <a href="/GroupProduct/GroupProductIndex">
+                        <span class="SubMenuText">
+                            Quản lý nhóm bài viết
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Product/ProductIndex">
+                        <span class="SubMenuText">
+                            Quản lý bài viết
+                        </span>
+                    </a>
+                </li>
+            
+            </ul>
+        </li>
+       
+      
+
+        <li>
+            <a class="TopMenuItem" href="javascript:;">
+                <span class="MenuText"><i class="fa fa-users"></i>Quản lý Admin</span>
+            </a>
+            <ul>
+               
+                <li>
+                    <a href="/Administrator/AdministratorIndex">
+                        <span class="SubMenuText">
+                            Quản lý Administrator
+                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        }
+        else
+        {
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="fa fa-cogs"></i>Quản lý </span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/Config/Index">
+                            <span class="SubMenuText">
+                                Cấu hình
+
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Banner/Index">
+                            <span class="SubMenuText">
+                                Quảng cáo
+                            </span>
+                        </a>
+
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="TopMenuItem" href="javascript:;">
+                    <span class="MenuText"><i class="fa fa-tags"></i>Quản lý bài viết</span>
+                </a>
+                <ul>
+                    <li class="SubFirst">
+                        <a href="/GroupProduct/GroupProductIndex">
+                            <span class="SubMenuText">
+                                Quản lý nhóm bài viết
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Product/ProductIndex">
+                            <span class="SubMenuText">
+                                Quản lý bài viết
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+        }
+            
+    
+        
+
+        
+        
+
+
+
+    </ul>
+</div>

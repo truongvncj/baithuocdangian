@@ -1,0 +1,57 @@
+
+.nivoSlider {
+height:343px;
+margin:0 auto;
+position:relative;
+width:678px;
+}
+.nivoSlider img {
+width:100%;
+
+}
+.nivo-slice {
+display:block;
+height:100%;
+position:absolute;
+z-index:50;
+}
+.nivo-box {
+display:block;
+position:absolute;
+z-index:5;
+}
+
+
+.nivo-html-caption {
+display:none;
+}
+.nivo-controlNav {
+bottom:-30px;
+height:14px;
+left:0;
+position:absolute;
+text-align:center;
+width:678px;
+position:absolute;
+top:316px;
+}
+.nivo-controlNav a {
+background:#e3e3e3;
+border-radius:8px;
+cursor:pointer;
+display:inline-block !important;
+font-size:0;
+height:14px;
+line-height:0;
+margin:0 2px 0 1px;
+overflow:hidden;
+position:relative;
+text-decoration:none;
+vertical-align:top;
+width:14px;
+z-index:99;
+}
+.nivo-controlNav a:hover,.nivo-controlNav a.active {
+background:#c24050;
+color:#c24050;
+}

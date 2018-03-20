@@ -1,0 +1,14 @@
+﻿@model IList<baithuocdangian.Models.tbl_Banner>
+
+<div class="titleside">Quảng cáo </div>
+ @for (int i = 0; i < @Model.Count; i++)
+ {
+     if(@Model[i].Trang_thai==true)
+     {
+    <a target="_blank" href="@Model[i].Link">
+        <img style="width:100%" border="0" src="@Model[i].Duong_dan">
+    </a>
+     }
+ }
+
+<div class="clear"></div>

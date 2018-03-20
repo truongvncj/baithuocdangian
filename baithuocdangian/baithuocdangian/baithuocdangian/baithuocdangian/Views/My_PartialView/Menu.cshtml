@@ -1,0 +1,58 @@
+﻿@model IList<baithuocdangian.Models.tbl_Danhmuc>
+@*<nav id="menu">
+    <ul>
+        <li><a style="border-right: 1px dotted #fff" href="@Url.Action("Index","Home")"><i style="font-size:43px;position:absolute;left:37px;" class="fa fa-medkit"></i></a></li>
+        
+    @for (int i = 0; i < @Model.Count;i++ )
+    {
+        <li><a href="@Url.Action("Category","Home", new {@id=@Model[i].Id })">@Model[i].Name</a></li>
+    
+   
+
+    }
+      <li>
+          <form method="post" action="@Url.Action("Search", "Home")">
+              <input style="height:28px;line-height:28px;margin-top: 6px;float:left;width: 213px;border-radius:5px;padding-left: 8px;padding-top:2px;background: none repeat scroll 0 0 rgba(239, 236, 236, 0.98);color: #808080;border: 1px solid rgba(239, 236, 236, 0.98);" type="search" name="search" id="txtSearch" placeholder="Tìm kiếm bài viết" size="30" /><button style="border: medium none;background:url(/Content/Images/icon-search.png) no-repeat;margin-left:5px;height:37px;width:36px;float:left; margin-top: 3px;" value="tìm kiếm" type="submit"></button>
+              </form>
+</li>
+    </ul>
+</nav>*@
+
+
+<script>
+            $(function () {
+
+                $('.menu-show').click(function () {
+                    $('nav ul').toggleClass('showing');
+
+                });
+
+            });
+</script>
+<nav>
+    <div class="menu-show">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul>
+        <li>
+            <a class="menu-a" href="@Url.Action("Index","Home")">Home</a>
+
+
+        </li>
+        
+       @for(int i =0;i<@Model.Count;i++)
+       { 
+           if(@Model[i].Hien_thi==true)
+           {
+        <li><a class="menu-a" href="@Url.Action("Category", "Home", new { @id = @Model[i].Id })">@Model[i].Name</a></li>
+           }
+       }
+        @*<li>
+            <form method="post" action="@Url.Action("Search", "Home")">
+                <input style="height:28px;line-height:28px;margin-top: 6px;float:left;width: 213px;border-radius:5px;padding-left: 8px;padding-top:2px;background: none repeat scroll 0 0 rgba(239, 236, 236, 0.98);color: #808080;border: 1px solid rgba(239, 236, 236, 0.98);" type="search" name="search" id="txtSearch" placeholder="Tìm kiếm bài viết" size="30" /><button style="border: medium none;background:url(/Content/Images/icon-search.png) no-repeat;margin-left:5px;height:37px;width:36px;float:left; margin-top: 3px;" value="tìm kiếm" type="submit"></button>
+            </form>
+        </li>*@
+
+    </ul>
+
+</nav>

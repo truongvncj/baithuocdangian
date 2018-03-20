@@ -1,0 +1,258 @@
+﻿
+@{
+    ViewBag.Title = "Thongtincanhan";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model baithuocdangian.Models.tbl_Admin
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#groupproductcreate-form").validationEngine();
+    });
+    function checkHELLO(field, rules, i, options) {
+        if (field.val() != "HELLO") {
+            // this allows to use i18 for the error msgs
+            return options.allrules.validate2fields.alertText;
+        }
+    }
+</script>
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Chi tiết thành viên </span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+                        <div>
+                            @using (Html.BeginForm("AdministratorEdit", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data", @id = "groupproductcreate-form", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="icon-reorder"></i>&nbsp;Chi tiết thành viên</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Admin/Default"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Chi tiết thành viên
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Administrator/AdministratorIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Tên tài khoản <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Username
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Mật khẩu <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    **********
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Họ và tên <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Fullname
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Ngày sinh <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Dateofbirth.Value.ToShortDateString()
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Chứng minh nhân dân <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Cmt
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Email <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Email
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Điện thoại <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Model.Phone
+
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Địa chỉ
+                                                                </td>
+                                                                <td>
+                                                                    @Html.Raw(@Model.Address)
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        thuốc dân gian-quà tặng cho mọi nhà
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+@* ckfinder *@
+
+@* ckeditor *@
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'Content');
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

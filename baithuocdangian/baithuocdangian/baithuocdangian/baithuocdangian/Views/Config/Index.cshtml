@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model IList<baithuocdangian.Models.tbl_Config>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Cập nhật cấu hình</span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+
+
+                        <div>
+                            @using (Html.BeginForm("Index", "Config", FormMethod.Post, new { enctype = "multipart/form-data", @id = "groupproductcreate-form", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="fa fa-reorder"></i>&nbsp;Cấu hình</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">
+
+                                                                        <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+
+                                                                    </td>
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Admin/Default"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Cấu hình
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Admin/Default"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+
+                                                      
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Thông tin copyright
+                                                                </td>
+                                                                
+                                                                <td>
+                                                                   
+                                                                    <textarea name="Content" id="Content">@Model.First().Thontin_coppy</textarea>
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Thông tin copyright
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Thông tin copyright
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        phimcuatui.com - Thiên đường giải trí
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+@* ckfinder *@
+<script language="javascrip" type="text/javascript">
+    $(function () {
+        $("#SelectImages").click(function () {
+
+            var ckfinder = new CKFinder();
+            ckfinder.selectActionFunction = function (fileUrl) {
+                $("#Image").val(fileUrl);
+            };
+            ckfinder.popup();
+        });
+
+    });
+
+</script>
+@* ckeditor *@
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'Content');
+    });
+
+
+</script>
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'thanhtoan');
+    });
+
+
+</script>
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'canhbao');
+    });
+
+
+</script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+
+
+
+
+
+

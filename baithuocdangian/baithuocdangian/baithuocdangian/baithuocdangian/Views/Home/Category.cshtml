@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using baithuocdangian.Models;
+@using PagedList.Mvc;
+@using PagedList;
+
+@model IPagedList<Noi_dung>
+ @Html.Raw(ViewBag.hienthi)
+@{
+    @Html.Raw(ViewBag.chuoi)
+    
+    for (int i = 0; i<@Model.Count;i++)
+    {
+
+  if(@Model[i].Hien_thi==true)
+  { 
+<ul class="sanpham">
+    <li class="chuyenmuc">
+      <a href="@Url.Action("Detail", "Home", new {@id=@Model[i].Id})" rel="nofollow">
+         <img width="100" height="100" src="@Model[i].Anh_minh_hoa" class="attachment-anhdaidien wp-post-image" alt="dai-dam">
+      </a>
+        <h2>
+            
+            <a href="@Url.Action("Detail", "Home", new { @id = @Model[i].Id })">@Model[i].Name
+            </a>
+        </h2>
+        @if (@Model[i].Mo_ta.Length < 35)
+        {
+            <span title="@Model[i].Mo_ta">@Html.Raw(@Model[i].Mo_ta)</span>
+        }
+        
+        else
+        
+            {
+            
+            <span title="@Model[i].Mo_ta">@Html.Raw(@Model[i].Mo_ta.Substring(0, 130))</span>
+            }
+        
+     </li>
+   
+</ul>
+    }
+    }
+}
+<div class="clear"></div>
+<div class="pagelist">
+    <ul>
+             
+            @Html.PagedListPager(Model, Page => Url.Action("Category", new { Page }), new PagedListRenderOptions() { Display=PagedListDisplayMode.IfNeeded,DisplayPageCountAndCurrentLocation=true})
+       
+       
+    </ul>
+</div>
+
+

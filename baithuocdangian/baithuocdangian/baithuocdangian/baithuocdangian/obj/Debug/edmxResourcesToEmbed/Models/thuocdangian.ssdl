@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="thuocdangianModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Noi_dung">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="500" />
+    <Property Name="Mo_ta" Type="ntext" />
+    <Property Name="Ngay_cap_nhat" Type="date" />
+    <Property Name="Noi_dung" Type="ntext" />
+    <Property Name="Anh_minh_hoa" Type="varchar(max)" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="Hien_thi" Type="bit" />
+    <Property Name="Id_danhmuc" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dateofbirth" Type="date" />
+    <Property Name="Cmt" Type="varchar" MaxLength="9" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="11" />
+    <Property Name="Address" Type="ntext" />
+    <Property Name="Role" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Banner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Duong_dan" Type="nvarchar" MaxLength="400" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="Trang_thai" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Config">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Thontin_coppy" Type="ntext" />
+  </EntityType>
+  <EntityType Name="tbl_Danhmuc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="Hien_thi" Type="bit" />
+    <Property Name="Mo_ta" Type="ntext" />
+  </EntityType>
+  <Association Name="FK_Noi_dung_tbl_Danhmuc">
+    <End Role="tbl_Danhmuc" Type="Self.tbl_Danhmuc" Multiplicity="0..1" />
+    <End Role="Noi_dung" Type="Self.Noi_dung" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Danhmuc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Noi_dung">
+        <PropertyRef Name="Id_danhmuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="thuocdangianModelStoreContainer">
+    <EntitySet Name="Noi_dung" EntityType="Self.Noi_dung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Banner" EntityType="Self.tbl_Banner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Config" EntityType="Self.tbl_Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Danhmuc" EntityType="Self.tbl_Danhmuc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Noi_dung_tbl_Danhmuc" Association="Self.FK_Noi_dung_tbl_Danhmuc">
+      <End Role="tbl_Danhmuc" EntitySet="tbl_Danhmuc" />
+      <End Role="Noi_dung" EntitySet="Noi_dung" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

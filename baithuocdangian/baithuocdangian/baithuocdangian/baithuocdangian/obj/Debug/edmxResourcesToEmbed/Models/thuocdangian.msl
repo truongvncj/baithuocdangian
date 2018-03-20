@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="thuocdangianModelStoreContainer" CdmEntityContainer="thuocdangianEntities1">
+    <EntitySetMapping Name="Noi_dung">
+      <EntityTypeMapping TypeName="thuocdangianModel.Noi_dung">
+        <MappingFragment StoreEntitySet="Noi_dung">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+          <ScalarProperty Name="Ngay_cap_nhat" ColumnName="Ngay_cap_nhat" />
+          <ScalarProperty Name="Noi_dung1" ColumnName="Noi_dung" />
+          <ScalarProperty Name="Anh_minh_hoa" ColumnName="Anh_minh_hoa" />
+          <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+          <ScalarProperty Name="Hien_thi" ColumnName="Hien_thi" />
+          <ScalarProperty Name="Id_danhmuc" ColumnName="Id_danhmuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="thuocdangianModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+          <ScalarProperty Name="Cmt" ColumnName="Cmt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Banner">
+      <EntityTypeMapping TypeName="thuocdangianModel.tbl_Banner">
+        <MappingFragment StoreEntitySet="tbl_Banner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Duong_dan" ColumnName="Duong_dan" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+          <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Config">
+      <EntityTypeMapping TypeName="thuocdangianModel.tbl_Config">
+        <MappingFragment StoreEntitySet="tbl_Config">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Thontin_coppy" ColumnName="Thontin_coppy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Danhmuc">
+      <EntityTypeMapping TypeName="thuocdangianModel.tbl_Danhmuc">
+        <MappingFragment StoreEntitySet="tbl_Danhmuc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+          <ScalarProperty Name="Hien_thi" ColumnName="Hien_thi" />
+          <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

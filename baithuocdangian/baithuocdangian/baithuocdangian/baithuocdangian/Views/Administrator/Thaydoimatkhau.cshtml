@@ -1,0 +1,268 @@
+﻿
+@{
+    ViewBag.Title = "Thaydoimatkhau";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model baithuocdangian.Models.tbl_Admin
+
+
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Thay đổi mật khẩu </span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+                        <div>
+                            @using (Html.BeginForm("Thaydoimatkhau", "Administrator",  FormMethod.Post,  new { enctype = "multipart/form-data", @id = "formname", @name="sang", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="icon-reorder"></i>&nbsp;Thay đổi mật khẩu</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">
+
+                                                                        <button type="submit" id="submit" onclick=" batloi();" class=" toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+
+                                                                    </td>
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Product/ProductIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Thay đổi mật khẩu
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <button type="submit" id="submit" onclick=" batloi();" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Admin/Defaut"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Mật khẩu cũ <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="text" id="matkhaucu" name="matkhaucu" onblur="" type="password"> @ViewBag.thongbao
+                                                                     <p style="display:none;color:red" id="loi" name="loi"></p>
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Mật khẩu cũ
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Mật khẩu cũ (Ví dụ:long123 )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Mật khẩu mới <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="  text" id="matkhaumoi" name="matkhaumoi" type="password">
+                                                                    <p style="display:none;color:red;" id="mkc" name="loi"></p>
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Mật khẩu mới
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Mật khẩu mới (Ví dụ:admin123 )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                   Nhập lại mật khẩu mới <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class=" text" id="nhaplaimatkhaumoi" name="nhaplaimatkhaumoi" type="password">
+                                                                    <p style="display:none;color:red;" id="nlmkm" name="loi"></p>
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Nhập lại mật khẩu mới
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Nhập lại mật khẩu mới (Ví dụ:admin123 )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                              
+                                                            
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        phimcuatui.com - Thiên đường giải trí
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+<script  type="text/javascript">
+
+    function batloi()
+    {
+        var user = document.sang.matkhaucu.value;
+        var matkhaumoi = document.sang.matkhaumoi.value;
+        var nhaplaimatkhaumoi = document.sang.nhaplaimatkhaumoi.value;
+        var thongbao = document.getElementById("loi");
+        if(user=="")
+        {
+            thongbao.innerHTML = "xin chào";
+            return false;
+            
+          
+          
+        }
+       
+       
+      
+        if (matkhaumoi == "") {
+           
+            document.getElementById("mkm").style.display = 'block';
+            document.getElementById("mkm").innerHTML = "vui lòng nhập lại mật khẩu !";
+            return false;
+            
+    
+        }
+      
+        if (nhaplaimatkhaumoi == "") {
+            document.getElementById("nlmkm").style.display = 'block';
+            document.getElementById("nlmkm").innerHTML = "vui lòng nhập mật khẩu mới !";
+            return false;
+       
+        }
+       
+        
+        
+    }
+  
+  
+    
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

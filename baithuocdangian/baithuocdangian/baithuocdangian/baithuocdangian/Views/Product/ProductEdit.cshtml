@@ -1,0 +1,367 @@
+﻿
+@{
+    ViewBag.Title = "ProductEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model baithuocdangian.Models.Noi_dung
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#groupproductcreate-form").validationEngine();
+    });
+    function checkHELLO(field, rules, i, options) {
+        if (field.val() != "HELLO") {
+            // this allows to use i18 for the error msgs
+            return options.allrules.validate2fields.alertText;
+        }
+    }
+</script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Thêm bài thuốc mới</span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+                        <div>
+                            @using (Html.BeginForm("ProductEdit", "Product", FormMethod.Post, new { enctype = "multipart/form-data", @id = "groupproductcreate-form", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="icon-reorder"></i>&nbsp;Chỉnh sửa bài thuốc mới</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">
+
+                                                                        <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+
+                                                                    </td>
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Product/ProductIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Chỉnh sửa bài thuốc mới
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Product/ProductIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Tiêu đề bài thuốc dân gian <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class=" validate[required] text" id="Name" name="name" type="text" value="@Model.Name">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Tiêu bài thuốc dân gian
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Tiêu đề phim (Ví dụ:bài thuốc chữa bệnh hư cấu )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Ảnh minh họa <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input class="validate[required] text" id="Image" name="anhminhhoa" type="text" value="@Model.Anh_minh_hoa">&nbsp;<input id="SelectImages" type="button" value="Chọn ảnh">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Ảnh minh họa
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Ảnh minh họa
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Thuộc danh mục nào?<span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+                                                                    @Html.DropDownList("theloai", " ===danh mục===")
+
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                danh mục
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                danh mục (Ví dụ:sức khỏe trẻ em)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Ngày đăng bài viết<span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input class="validate[required] text" id="datepicker" name="ngaydang" type="text" value="@Model.Ngay_cap_nhat">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Ngày đăng bài viết
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                ngày đăng bài viết (Ví dụ:ngày đăng :06-03-2015)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Mô tả
+                                                                </td>
+                                                                <td>
+                                                                
+                                                                    @Html.TextArea("Mo_ta", new { @id = "Mota", @class = "validate[required]" })
+
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Mô tả
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Mô tả
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Nội dung chi tiết
+                                                                </td>
+                                                                <td>
+                                                                   
+                                                                    @Html.TextArea("Noi_dung1", new { @id = "Content", @class = "validate[required]" })
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Nội dung chi tiết
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Nội dung chi tiết của thực đơn
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    thứ tự <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input class="validate[required] text" id="linkphim" name="thutu" type="text" value="@Model.Thu_tu">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                thứ tự
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                thứ tự (Ví dụ: 1)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Hiển thị <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                   @Html.CheckBox("txtactive", (Model.Hien_thi == true) ? true : false)
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Hiển thị
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Hiển thị (Ví dụ:không tích vào là không hiển thị )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        phimcuatui.com - Thiên đường giải trí
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+@* ckfinder *@
+<script language="javascrip" type="text/javascript">
+    $(function () {
+        $("#SelectImages").click(function () {
+
+            var ckfinder = new CKFinder();
+            ckfinder.selectActionFunction = function (fileUrl) {
+                $("#Image").val(fileUrl);
+            };
+            ckfinder.popup();
+        });
+
+    });
+
+</script>
+@* ckeditor *@
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'Content');
+    });
+
+
+</script>
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'Mota');
+    });
+
+
+</script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+

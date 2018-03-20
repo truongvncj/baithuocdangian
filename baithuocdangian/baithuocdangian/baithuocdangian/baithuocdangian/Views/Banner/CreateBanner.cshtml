@@ -1,0 +1,275 @@
+﻿
+@{
+    ViewBag.Title = "CreateBanner";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model baithuocdangian.Models.tbl_Banner
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#groupproductcreate-form").validationEngine();
+    });
+    function checkHELLO(field, rules, i, options) {
+        if (field.val() != "HELLO") {
+            // this allows to use i18 for the error msgs
+            return options.allrules.validate2fields.alertText;
+        }
+    }
+</script>
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Thêm quảng cáo </span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+                        <div>
+                            @using (Html.BeginForm("CreateBanner", "Banner", FormMethod.Post, new { enctype = "multipart/form-data", @id = "groupproductcreate-form", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="icon-reorder"></i>&nbsp;Thêm quảng cáo</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">
+
+                                                                        <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+
+                                                                    </td>
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Banner/Index"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Thêm quảng cáo
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Banner/Index"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Tên quảng cáo <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required]  text" id="Name" name="Name" type="text" value="" placeholder=" Tên quảng cáo">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Tên quảng cáo
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Tên quảng cáo (Ví dụ: nước hoa pháp)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                             
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Ảnh minh họa <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input class="validate[required] text" id="Image" name="anhminhhoa" type="text" value="">&nbsp;<input id="SelectImages" type="button" value="Chọn ảnh">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Ảnh minh họa
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Ảnh minh họa
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                   Link <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,custom[url]]  text" id="Name" name="linkweb" type="text" value="" placeholder="Link quảng cáo">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                               Link quảng cáo
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Link quảng cáo (Ví dụ: baithuoc.somee.com)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    thứ tự <span>*</span>
+                                                                </td>
+                                                                <td>
+                                                                    <input class="validate[required] text" id="linkphim" name="thutu" type="text" value="" placeholder="nhập thứ tự">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                thứ tự
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                thứ tự (Ví dụ: 1)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Hiển thị <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    @Html.CheckBox("txtactive")
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Hiển thị
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Hiển thị (Ví dụ:không tích vào là không hiển thị )
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        thuốc dân gian-quà tặng cho mọi nhà
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+@* ckfinder *@
+
+<script language="javascrip" type="text/javascript">
+    $(function () {
+        $("#SelectImages").click(function () {
+
+            var ckfinder = new CKFinder();
+            ckfinder.selectActionFunction = function (fileUrl) {
+                $("#Image").val(fileUrl);
+            };
+            ckfinder.popup();
+        });
+
+    });
+
+</script>
+
+
+
+
+
+
+
+

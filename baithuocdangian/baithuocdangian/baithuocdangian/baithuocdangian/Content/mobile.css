@@ -1,0 +1,383 @@
+body{margin: 0px;padding: 0px;font-family: sans-serif;}
+*{margin: 0px;padding: 0px;}
+nav ul { background-color: #43a286;overflow: hidden;color:white;padding: 0;width: 100%;text-align: center;
+transition: max-height 0.4s;
+}
+nav ul li {display: inline-block;padding: 20px;}
+nav ul li .menu-a{text-decoration: none;color: white;}
+nav ul li:hover{background-color: #399077}
+nav ul li ul {display:none;}
+.menu-show {width: 100%;background-color: #005c48;padding: 15px 10px ;text-align: left;box-sizing:border-box;cursor: pointer;color: white;display: none;}
+@media screen and (min-width:1px) and (max-width:478px) {
+    nav {
+        width: 100%;
+    }
+
+        nav ul {
+            max-height: 0px;
+        }
+
+    .showing {
+        max-height: 30em;
+        display: block;
+    }
+
+
+
+    nav ul li {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu-show {
+        display: block;
+    }
+
+    #content-right {
+        display: none;
+    }
+
+    #content {
+        width: 100%;
+    }
+
+    #content-left {
+        background: #ffffff none repeat scroll 0 0;
+        height: auto;
+        margin: 0 auto;
+        text-align: justify;
+        width: 100%;
+        float: none;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .box {
+        background: #fff none repeat scroll 0 0;
+        height: auto;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    #box-slidershow {
+        background: #e6eae6 none repeat scroll 0 0;
+        height: 300px;
+        position: relative;
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 0px;
+        float: none;
+    }
+
+    .box-1 {
+        background: #fff none repeat scroll 0 0;
+        border: none;
+        height: auto;
+        margin-bottom: 15px;
+        margin-top: 5px;
+        padding-left: 0px;
+        width: 100%;
+    }
+
+        .box-1 .box-right {
+            float: none;
+            height: auto;
+            width: 100%;
+        }
+
+    .box-right .box-right-box {
+        height: auto;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .box-right img {
+        box-sizing: border-box;
+        float: left;
+        height: 100px;
+        padding-left: 3px;
+        width: 30%;
+    }
+
+    .box-right-box .chuabaianhnho {
+        float: left;
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%;
+    }
+
+    .box-right-box .titlebaianhnho {
+        box-sizing: border-box;
+        float: right;
+        font-size: 13px;
+        padding-right: 3px;
+        width: 68%;
+    }
+
+    .box-right-box .motabaianhnho {
+        box-sizing: border-box;
+        float: right;
+        padding-right: 3px;
+        width: 68%;
+    }
+
+    .box-1 .box-left {
+        height: auto;
+        width: 100%;
+    }
+
+    #box-left {
+        background: #fff none repeat scroll 0 0;
+        height: auto;
+        margin-top: 9px;
+        overflow: hidden;
+        padding-bottom: 5px;
+        padding-top: 11px;
+        width: 100%;
+        float: none;
+    }
+
+    .title-box {
+        background: #00a200 none repeat scroll 0 0;
+        float: none;
+        height: 37px;
+        line-height: 0;
+        margin: 0 0 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+        .title-box span {
+            background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+            color: #fff;
+            float: none;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 37px;
+            padding: 0 10px;
+            text-indent: 55px;
+            width: 100%;
+        }
+
+    #header {
+        height: auto;
+        left: 0;
+        margin: 0 auto;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10000;
+        border-bottom: none;
+        background: none;
+    }
+
+    #box-slidershow img {
+        height: 300px;
+        width: 100%;
+        z-index: 3;
+    }
+
+    #nenden {
+        box-sizing: border-box;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .tinmoi p {
+        background: #00a200 none repeat scroll 0 0;
+        color: #fff;
+        float: none;
+        font-size: 13px;
+        font-weight: bold;
+        height: 37px;
+        line-height: 2.8;
+        border-radius: inherit;
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    #box-left ul {
+        float: none;
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    #box-left li {
+        border-bottom: 1px dashed #c2c2c2;
+        box-sizing: border-box;
+        line-height: 3.5;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .box-left img {
+        height: 250px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .box-left h2 {
+        box-sizing: border-box;
+        font-size: 13px;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+    }
+
+    .box-left p {
+        box-sizing: border-box;
+        font-size: 13px;
+        padding-right: 5px;
+        width: 100%;
+    }
+
+    #footer {
+        background: #f6f7f8 none repeat scroll 0 0;
+        border-top: 3px solid #00a200;
+        margin: 20px auto 0;
+        padding: 10px 0 0;
+        width: 100%;
+    }
+
+    element.style {
+        margin-top: 25px;
+        width: 100%;
+    }
+
+    .thongtin {
+        float: none;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .khoifooter {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .description {
+        background: #ededed none repeat scroll 0 0;
+        border-radius: inherit;
+        box-sizing: border-box;
+        float: none;
+        margin: 10px 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+    }
+
+    .titlecate {
+        border-radius: inherit;
+    }
+
+    li.chuyenmuc {
+        border: 1px solid #e6eae6;
+        clear: both;
+        float: left;
+        height: auto;
+        margin: 0px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .entry-title {
+        box-sizing: border-box;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+    }
+
+    .chuyenmuc img {
+        float: left;
+        height: 100px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        width: 30%;
+    }
+
+    .chuyenmuc h2 {
+        box-sizing: border-box;
+        float: right;
+        font-size: 14px;
+        padding-right: 6px;
+        width: 66%;
+    }
+
+    .chuyenmuc span {
+        box-sizing: border-box;
+        float: none;
+        font-size: 14px;
+        width: 66%;
+    }
+
+    .pagination-container {
+        width: 100%;
+    }
+
+    .pagelist {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .entry-content {
+        box-sizing: border-box;
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
+    }
+
+    .entry-title {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .entry-content img {
+        width: 100% !important;
+    }
+
+    .fb_iframe_widget {
+        display: none !important;
+    }
+    
+.newnews {
+    border: 1px solid #e6eae6;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 40px;
+    padding: 25px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+.titlesideranhdaidien {
+    background: #00a200 none repeat scroll 0 0;
+    border-radius:inherit;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    height: 43px;
+    line-height: 43px;
+    margin: -40px 0 1px;
+    text-align: center;
+    width: 100%;
+}
+ul.listtintuc li {
+    float: left !important;
+    height: 110px;
+    margin: 0 0 10px 10px !important;
+    width: 100% !important;
+}
+.day_post{width:100%;padding-left:5px;box-sizing:border-box;}
+}
+

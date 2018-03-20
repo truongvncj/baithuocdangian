@@ -1,0 +1,17 @@
+﻿@model IList <baithuocdangian.Models.Noi_dung>
+<aside id="recent-posts-2" class="widget widget_recent_entries">
+    <div class="titleside">Bài viết mới trên web</div>
+    <ul class="baivietmoi">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <li style="border-bottom:1px dashed #c1bebe;"><i style="color:#f1b4b4" class="fa fa-tags"></i>
+                <a href="@Url.Action("Detail", "Home", new { id =@Model[i].Id })">@Model[i].Name</a>
+            </li>
+        }
+
+
+    </ul>
+</aside>
+<div class="clear"></div>
+
+

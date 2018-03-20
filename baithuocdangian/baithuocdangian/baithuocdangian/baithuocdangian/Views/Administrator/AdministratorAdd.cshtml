@@ -1,0 +1,349 @@
+﻿
+@{
+    ViewBag.Title = "AdministratorAdd";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model baithuocdangian.Models.tbl_Admin
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#groupproductcreate-form").validationEngine();
+    });
+    function checkHELLO(field, rules, i, options) {
+        if (field.val() != "HELLO") {
+            // this allows to use i18 for the error msgs
+            return options.allrules.validate2fields.alertText;
+        }
+    }
+</script>
+
+<div id="main-content">
+    <div class="container-fluid">
+        <div style="width: 100%; margin: 0 auto;">
+
+            <div id="Breadcrumb" class="Block Breadcrumb ui-widget-content ui-corner-top ui-corner-bottom">
+                <ul>
+                    <li class='SecondLast'><a href='@Url.Action("Default", "Admin")'><i class="fa fa-home" style="font-size:14px;"></i> Trang chủ</a></li>
+                    <li class='Last'><span>Thêm thành viên </span></li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+
+
+            <div id="cph_Main_ContentPane">
+
+
+
+
+                <div class="widget">
+
+                    <div class="widget-body">
+
+
+
+                        <div>
+                            @using (Html.BeginForm("AdministratorAdd", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data", @id = "groupproductcreate-form", @class = "validate-form" }))
+                            {
+                                <div id="cph_Main_ContentPane">
+                                    <div class="widget">
+                                        <!-- widget-title -->
+                                        <div class="widget-title">
+                                            <h4><i class="icon-reorder"></i>&nbsp;Thêm thành viên</h4>
+
+                                            <!-- Button -->
+                                            <div class="ui-corner-top ui-corner-bottom">
+                                                <div id="toolbox">
+                                                    <div style="float: right;" class="toolbox-content">
+
+                                                        <table class="toolbar">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="center">
+
+                                                                        <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+
+                                                                    </td>
+                                                                    <td align="center">
+
+                                                                        <a title="Quay lại" class="toolbar btn btn-info" href="../../Administrator/AdministratorIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Button -->
+
+                                            <div id="hiddenToolBarScroll" class="scrollBox hidden">
+                                                <h4>
+                                                    <i class="icon-reorder"></i>&nbsp;Thêm thành viên
+                                                </h4>
+                                                <div class="FloatMenuBar">
+
+                                                    <div class="ui-corner-top ui-corner-bottom">
+                                                        <div id="Div1">
+
+                                                            <div style="float: right;" class="toolbox-content">
+
+                                                                <table class="toolbar">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td align="center">
+                                                                                <button type="submit" class="toolbar btn btn-info"><i class="fa fa-floppy-o"></i>&nbsp;Ghi lại</button>
+                                                                            </td>
+                                                                            <td align="center">
+                                                                                <a title="Quay lại" class="toolbar btn btn-info" href="../../Administrator/AdministratorIndex"><i class="fa fa-arrow-circle-o-right"></i>&nbsp;Trở về</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-title -->
+                                        <!-- widget-body -->
+                                        <div class="widget-body">
+                                            <div id="tabs">
+                                                <div id="tabs-1">
+
+                                                    <table class="admintable" style="width: 100%;">
+
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Tên tài khoản <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,minSize[6],maxSize[20]]  text" id="Name" name="user" type="text" value="" placeholder="nhập tên tài khoản">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Tên tài khoản
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Tên tài khoản (Ví dụ: buivanlong)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Mật khẩu <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,minSize[6],maxSize[20]]  text" id="Name" name="pass" type="password" value="" placeholder="nhập tên mật khẩu">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Mật khẩu
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Mật khẩu (Ví dụ: 123456)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                   Họ và tên <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,,maxSize[30]]  text" id="Name" name="fullname" type="text" value="" placeholder="nhập họ tên ">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Họ và tên
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Họ và tên (Ví dụ: Bùi Văn Long)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Ngày sinh <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,,maxSize[30]]  text" id="Name" name="ngaysinh" type="text" value="" placeholder="nhập ngày sinh ">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Ngày sinh
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Ngày sinh (Ví dụ: 20-01-1994)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                   Chứng minh thư nhân dân <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,,maxSize[30]]  text" id="Name" name="cmt" type="text" value="" placeholder="nhập họ tên ">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Chứng minh thư nhân dân 
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Chứng minh thư nhân dân  (Ví dụ: 0313812193)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Email <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,custom[email]]  text" id="Name" name="email" type="text" value="" placeholder="nhập địa chỉ email">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Email
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Email (Ví dụ: longit93@gmail.com)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Điện thoại <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input class="validate[required,custom[phone]] text" id="Name" name="phone" type="text" value="" placeholder="nhập số điện thoại">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Điện thoại
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                               Điện thoại(Ví dụ: 0988888888)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Địa chỉ
+                                                                </td>
+                                                                <td>
+                                                                    <textarea cols="20" id="Content" class="validate[required text" name="Content" rows="2" style="visibility: hidden; "></textarea>
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Địa chỉ
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Địa chỉ(Ví dụ: mỹ đình-từ liêm-hà nội)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="key">
+                                                                    Phân quyền <span class="Required">*</span>
+                                                                </td>
+                                                                <td>
+
+                                                                    <input style="width:30px;" class="validate[required,,maxSize[30]]  text" id="Name" name="phanquyen" type="text" value="" placeholder=" ">
+                                                                    <span class="tooltip-help">
+                                                                        <span class="tooltipContent">
+                                                                            <p class="tooltiptitle">
+                                                                                Phân quyền
+                                                                            </p>
+                                                                            <p class="tooltipmessage">
+                                                                                Phân quyền (Ví dụ: 1)
+                                                                            </p>
+                                                                        </span>
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                        
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- widget-body -->
+
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-right: 25px; float: right; color: Gray;">
+        thuốc dân gian-quà tặng cho mọi nhà
+    </div>
+    <div style="height: 10px; margin-top: 40px;">
+    </div>
+</div>
+@* ckfinder *@
+
+@* ckeditor *@
+<script language="javascrip" type="text/javascript">
+    var ckeditor;
+    function createEditer(langguageCode, id) {
+        var ckeditor = CKEDITOR.replace(id, { langguage: langguageCode });
+
+
+    };
+    $(function () {
+        createEditer('vi', 'Content');
+    });
+
+
+</script>
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+﻿body {
+} 
+@media screen and (min-width:1px) and (max-width:478px)
+{
+.PageHeader {
+    background: rgb(53, 53, 53) none repeat scroll 0 0;
+    box-sizing: border-box;
+    height: 65px;
+    width: 100% !important;
+}
+
+.SystemMenu {
+  
+    width: 100% !important;
+}
+.sysMenu {
+    box-sizing: border-box;
+    float: right;
+    height: 24px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-top: 8px;
+    padding-left:0px;
+    text-align: inherit;
+    width: 100%;
+}
+.boder_menu {
+    background-color: #24c2ce;
+    min-width: inherit !important;
+    width: 100%;
+}
+#menu {
+    display: block;
+    float: none;
+   
+    display:table !important;
+    line-height: 40px;
+    margin: auto;
+    width: 100%;
+}
+#menu ul {
+    box-sizing: border-box;
+    float: none !important;
+    height: auto;
+    list-style: outside none none;
+    margin-left: inherit !important;
+    padding: 0px;
+    width: 100%;
+}
+html body.fixed-top div#container.row-fluid div.clear{height:0px !important;}
+
+#menu ul li {
+    display: block;
+    float: none;
+    position: relative;
+    width: 100%;
+}
+#menu ul li a {
+    background-image: url("../../Content/Admin/Content/Images/Admin/icon_sub.gif");
+    background-position: right center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    display: block;
+
+    height: auto;
+    line-height: 38px;
+ 
+    padding: 0 15px 0 6px;
+}
+#menu li ul{width:100% !important;}
+}

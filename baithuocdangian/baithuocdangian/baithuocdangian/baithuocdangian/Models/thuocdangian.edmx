@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="thuocdangianModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Noi_dung">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Mo_ta" Type="ntext" />
+          <Property Name="Ngay_cap_nhat" Type="date" />
+          <Property Name="Noi_dung" Type="ntext" />
+          <Property Name="Anh_minh_hoa" Type="varchar(max)" />
+          <Property Name="Thu_tu" Type="int" />
+          <Property Name="Hien_thi" Type="bit" />
+          <Property Name="Id_danhmuc" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dateofbirth" Type="date" />
+          <Property Name="Cmt" Type="varchar" MaxLength="9" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="11" />
+          <Property Name="Address" Type="ntext" />
+          <Property Name="Role" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Duong_dan" Type="nvarchar" MaxLength="400" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="Thu_tu" Type="int" />
+          <Property Name="Trang_thai" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Thontin_coppy" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbl_Danhmuc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Thu_tu" Type="int" />
+          <Property Name="Hien_thi" Type="bit" />
+          <Property Name="Mo_ta" Type="ntext" />
+        </EntityType>
+        <Association Name="FK_Noi_dung_tbl_Danhmuc">
+          <End Role="tbl_Danhmuc" Type="Self.tbl_Danhmuc" Multiplicity="0..1" />
+          <End Role="Noi_dung" Type="Self.Noi_dung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Danhmuc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Noi_dung">
+              <PropertyRef Name="Id_danhmuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="thuocdangianModelStoreContainer">
+          <EntitySet Name="Noi_dung" EntityType="Self.Noi_dung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Banner" EntityType="Self.tbl_Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Config" EntityType="Self.tbl_Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Danhmuc" EntityType="Self.tbl_Danhmuc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Noi_dung_tbl_Danhmuc" Association="Self.FK_Noi_dung_tbl_Danhmuc">
+            <End Role="tbl_Danhmuc" EntitySet="tbl_Danhmuc" />
+            <End Role="Noi_dung" EntitySet="Noi_dung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="thuocdangianModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Noi_dung">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ngay_cap_nhat" Type="DateTime" Precision="0" />
+          <Property Name="Noi_dung1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Anh_minh_hoa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="Hien_thi" Type="Boolean" />
+          <Property Name="Id_danhmuc" Type="Int32" />
+          <NavigationProperty Name="tbl_Danhmuc" Relationship="Self.FK_Noi_dung_tbl_Danhmuc" FromRole="Noi_dung" ToRole="tbl_Danhmuc" />
+        </EntityType>
+        <EntityType Name="tbl_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dateofbirth" Type="DateTime" Precision="0" />
+          <Property Name="Cmt" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Duong_dan" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="Trang_thai" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Thontin_coppy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Danhmuc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="Hien_thi" Type="Boolean" />
+          <Property Name="Mo_ta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Noi_dung" Relationship="Self.FK_Noi_dung_tbl_Danhmuc" FromRole="tbl_Danhmuc" ToRole="Noi_dung" />
+        </EntityType>
+        <Association Name="FK_Noi_dung_tbl_Danhmuc">
+          <End Role="tbl_Danhmuc" Type="Self.tbl_Danhmuc" Multiplicity="0..1" />
+          <End Role="Noi_dung" Type="Self.Noi_dung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Danhmuc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Noi_dung">
+              <PropertyRef Name="Id_danhmuc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="thuocdangianEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Noi_dung" EntityType="Self.Noi_dung" />
+          <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" />
+          <EntitySet Name="tbl_Banner" EntityType="Self.tbl_Banner" />
+          <EntitySet Name="tbl_Config" EntityType="Self.tbl_Config" />
+          <EntitySet Name="tbl_Danhmuc" EntityType="Self.tbl_Danhmuc" />
+          <AssociationSet Name="FK_Noi_dung_tbl_Danhmuc" Association="Self.FK_Noi_dung_tbl_Danhmuc">
+            <End Role="tbl_Danhmuc" EntitySet="tbl_Danhmuc" />
+            <End Role="Noi_dung" EntitySet="Noi_dung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="thuocdangianModelStoreContainer" CdmEntityContainer="thuocdangianEntities1">
+          <EntitySetMapping Name="Noi_dung">
+            <EntityTypeMapping TypeName="thuocdangianModel.Noi_dung">
+              <MappingFragment StoreEntitySet="Noi_dung">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+                <ScalarProperty Name="Ngay_cap_nhat" ColumnName="Ngay_cap_nhat" />
+                <ScalarProperty Name="Noi_dung1" ColumnName="Noi_dung" />
+                <ScalarProperty Name="Anh_minh_hoa" ColumnName="Anh_minh_hoa" />
+                <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+                <ScalarProperty Name="Hien_thi" ColumnName="Hien_thi" />
+                <ScalarProperty Name="Id_danhmuc" ColumnName="Id_danhmuc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Admin">
+            <EntityTypeMapping TypeName="thuocdangianModel.tbl_Admin">
+              <MappingFragment StoreEntitySet="tbl_Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Dateofbirth" ColumnName="Dateofbirth" />
+                <ScalarProperty Name="Cmt" ColumnName="Cmt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Banner">
+            <EntityTypeMapping TypeName="thuocdangianModel.tbl_Banner">
+              <MappingFragment StoreEntitySet="tbl_Banner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Duong_dan" ColumnName="Duong_dan" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Config">
+            <EntityTypeMapping TypeName="thuocdangianModel.tbl_Config">
+              <MappingFragment StoreEntitySet="tbl_Config">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Thontin_coppy" ColumnName="Thontin_coppy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Danhmuc">
+            <EntityTypeMapping TypeName="thuocdangianModel.tbl_Danhmuc">
+              <MappingFragment StoreEntitySet="tbl_Danhmuc">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+                <ScalarProperty Name="Hien_thi" ColumnName="Hien_thi" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
